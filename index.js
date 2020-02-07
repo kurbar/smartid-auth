@@ -54,7 +54,7 @@ class Session {
               }
             }
           }
-        }).catch(err => reject(new Error(err)))
+        }).catch(err => reject(err))
       };
       pull();
     });
@@ -90,7 +90,7 @@ class Authentication {
             return reject(new Error('Invalid response'));
           }
           resolve(new Session(this.config, this.request, body.sessionID, authHash.calculateVerificationCode(hash.digest)));
-        }).catch(err => reject(new Error(err)));
+        }).catch(err => reject(err));
       });
     });
   }
